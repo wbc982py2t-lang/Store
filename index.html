@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منسج — ملابس وإكسسوارات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#221D1A;
+    --bone:#F4EEE3;
+    --plum:#4A2C3B;
+    --gold:#BE9A4C;
+    --sage:#77826A;
+    --line: rgba(34,29,26,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bone);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--gold); color:var(--ink); }
+  a{color:inherit; text-decoration:none;}
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
+
+  /* header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(244,238,227,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .headbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.5rem;
+    letter-spacing:0.02em;
+  }
+  .logo span{ color:var(--plum); font-style:italic; font-weight:500; }
+  nav{ display:flex; gap:28px; font-size:0.92rem; }
+  nav a{ position:relative; padding-bottom:4px; }
+  nav a::after{
+    content:''; position:absolute; right:0; bottom:0; width:0; height:1px;
+    background:var(--ink); transition:width .25s ease;
+  }
+  nav a:hover::after{ width:100%; }
+  .bag-btn{
+    display:flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem;
+    border:1px solid var(--ink); border-radius:999px;
+    padding:8px 16px; cursor:pointer; background:none; color:var(--ink);
+  }
+  .bag-btn:hover{ background:var(--ink); color:var(--bone); }
+  .bag-count{
+    background:var(--plum); color:var(--bone); border-radius:50%;
+    width:18px; height:18px; font-size:0.68rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ticker */
+  .ticker{
+    border-bottom:1px solid var(--line);
+    overflow:hidden; white-space:nowrap;
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem;
+    letter-spacing:0.08em; color:var(--sage);
+    padding:9px 0;
+  }
+  .ticker-track{ display:inline-block; animation: scroll-rtl 26s linear infinite; }
+  .ticker-track span{ margin-left:36px; }
+  @keyframes scroll-rtl{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+
+  /* hero */
+  .hero{
+    padding:88px 0 70px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif; font-weight:400; font-size:clamp(2.6rem, 5vw, 4.3rem);
+    line-height:1.05; letter-spacing:-0.01em;
+  }
+  .hero h1 em{ font-style:italic; color:var(--plum); font-weight:500; }
+  .hero p{
+    margin-top:20px; max-width:44ch; color:#4a4238; font-size:1.05rem;
+  }
+  .hero-cta{
+    margin-top:32px; display:flex; gap:14px;
+  }
+  .btn-primary{
+    background:var(--ink); color:var(--bone); padding:14px 26px;
+    border-radius:999px; font-size:0.92rem; font-weight:500;
+    display:inline-block; transition:transform .2s ease;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); }
+  .btn-ghost{
+    border:1px solid var(--ink); padding:13px 26px; border-radius:999px;
+    font-size:0.92rem; display:inline-block;
+  }
+  .hero-swatch{
+    aspect-ratio:4/5; border-radius:18px;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(190,154,76,0.5), transparent 55%),
+      linear-gradient(155deg, var(--plum), #2c1b25 70%);
+    position:relative; overflow:hidden;
+  }
+  .hero-swatch::before{
+    content:'منسج';
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:3.4rem; color:rgba(244,238,227,0.14);
+  }
+  .hero-tag{
+    position:absolute; bottom:20px; left:20px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    color:var(--bone); background:rgba(34,29,26,0.5);
+    padding:7px 12px; border-radius:999px;
+  }
+
+  /* section heading */
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin:80px 0 30px; border-bottom:1px solid var(--line); padding-bottom:18px;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif; font-weight:400; font-size:2rem;
+  }
+  .section-head span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--sage);
+  }
+
+  /* products */
+  .grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;
+    padding-bottom:40px;
+  }
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:16px;
+    overflow:hidden; display:flex; flex-direction:column;
+    transition:box-shadow .25s ease, transform .25s ease;
+  }
+  .card:hover{ box-shadow:0 14px 30px rgba(34,29,26,0.1); transform:translateY(-3px); }
+  .card-art{
+    aspect-ratio:1/1.05; position:relative;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .card-look{
+    position:absolute; top:12px; right:14px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:rgba(244,238,227,0.85);
+  }
+  .card-icon{ width:34%; opacity:0.92; }
+  .card-body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .card-title{ font-family:'Fraunces', serif; font-size:1.15rem; }
+  .card-desc{ font-size:0.85rem; color:#6b6155; }
+  .card-foot{
+    margin-top:auto; display:flex; align-items:center; justify-content:space-between;
+    padding-top:10px;
+  }
+  .price{ font-family:'IBM Plex Mono', monospace; font-size:0.9rem; }
+  .swatches{ display:flex; gap:6px; }
+  .swatch{
+    width:16px; height:16px; border-radius:50%; cursor:pointer;
+    border:2px solid transparent;
+  }
+  .swatch.active{ border-color:var(--ink); }
+  .add-btn{
+    width:100%; margin-top:12px; padding:11px; border-radius:10px;
+    border:1px solid var(--ink); background:none; font-size:0.86rem;
+    cursor:pointer; transition:background .2s, color .2s;
+  }
+  .add-btn:hover{ background:var(--ink); color:var(--bone); }
+  .add-btn.added{ background:var(--sage); border-color:var(--sage); color:var(--bone); }
+
+  /* strip */
+  .strip{
+    margin:90px 0; background:var(--ink); color:var(--bone);
+    border-radius:20px; padding:48px 40px;
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;
+  }
+  .strip div{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; }
+  .strip strong{
+    display:block; font-family:'Fraunces', serif; font-size:1.6rem;
+    font-weight:400; margin-bottom:6px; font-style:italic; color:var(--gold);
+  }
+
+  footer{
+    border-top:1px solid var(--line); padding:40px 0 60px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    font-size:0.85rem; color:#6b6155;
+  }
+  .foot-brand{ font-family:'Fraunces', serif; font-size:1.3rem; color:var(--ink); }
+  .foot-note{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; margin-top:6px; }
+
+  /* cart drawer */
+  .drawer-overlay{
+    position:fixed; inset:0; background:rgba(34,29,26,0.4);
+    opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:60;
+  }
+  .drawer-overlay.open{ opacity:1; pointer-events:auto; }
+  .drawer{
+    position:fixed; top:0; left:0; height:100%; width:min(360px, 88vw);
+    background:var(--bone); z-index:61; padding:28px 24px;
+    transform:translateX(-100%); transition:transform .3s ease;
+    display:flex; flex-direction:column;
+  }
+  .drawer.open{ transform:translateX(0); }
+  .drawer-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+  .drawer-head h3{ font-family:'Fraunces', serif; font-size:1.4rem; }
+  .drawer-close{ cursor:pointer; font-size:1.3rem; background:none; border:none; color:var(--ink); }
+  .drawer-items{ display:flex; flex-direction:column; gap:14px; overflow-y:auto; flex:1; }
+  .drawer-item{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.88rem; border-bottom:1px dashed var(--line); padding-bottom:12px;
+  }
+  .drawer-empty{ color:#8a8074; font-size:0.85rem; margin-top:30px; text-align:center; }
+  .drawer-note{
+    margin-top:18px; font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    color:var(--sage); border-top:1px solid var(--line); padding-top:16px;
+  }
+
+  @media (max-width:820px){
+    .hero{ grid-template-columns:1fr; }
+    .grid{ grid-template-columns:repeat(2,1fr); }
+    .strip{ grid-template-columns:1fr; }
+    nav{ display:none; }
+  }
+  @media (max-width:520px){
+    .grid{ grid-template-columns:1fr; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{ animation:none; }
+    *{ transition:none !important; }
+  }
+  :focus-visible{ outline:2px solid var(--plum); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap headbar">
+    <div class="logo">منسج<span>.</span></div>
+    <nav>
+      <a href="#new">جديد</a>
+      <a href="#products">المجموعة</a>
+      <a href="#about">الفكرة</a>
+    </nav>
+    <button class="bag-btn" id="bagBtn">
+      الشنطة <span class="bag-count" id="bagCount">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>قماش كتان مصري</span><span>صوف مشتَّى بالصوف</span><span>جلد مدبوغ يدويًا</span><span>خيوط قطن مصري 100٪</span>
+    <span>قماش كتان مصري</span><span>صوف مشتَّى بالصوف</span><span>جلد مدبوغ يدويًا</span><span>خيوط قطن مصري 100٪</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section class="hero" id="new">
+    <div>
+      <h1>مجموعة الخريف —<br><em>نسيج بيتكلم</em></h1>
+      <p>قطع مختارة بعناية من كتان وصوف وجلد طبيعي، مصمَّمة عشان تعيش معاك مواسم طويلة مش موضة موسم واحد.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn-primary">تصفّح المجموعة</a>
+        <a href="#about" class="btn-ghost">الفكرة ورا منسج</a>
+      </div>
+    </div>
+    <div class="hero-swatch">
+      <span class="hero-tag">قطعة 01 / خريف ٢٦</span>
+    </div>
+  </section>
+
+  <div class="section-head" id="products">
+    <h2>المجموعة</h2>
+    <span>٦ قطع — عرض بدون شراء فعلي</span>
+  </div>
+
+  <div class="grid" id="productGrid"></div>
+
+  <div class="strip">
+    <div><strong>يدوي</strong>كل قطعة بتتفصّل بإشراف حرفي مش خط إنتاج ضخم.</div>
+    <div><strong>طبيعي</strong>خامات كتان وصوف وجلد، من غير خيوط صناعية زيادة.</div>
+    <div><strong>محدود</strong>كمية محدودة من كل تصميم، لما تخلص متترجعش.</div>
+  </div>
+
+  <section id="about" style="padding-bottom:60px;">
+    <div class="section-head" style="margin-top:0;">
+      <h2>الفكرة</h2>
+    </div>
+    <p style="max-width:60ch; color:#4a4238; font-size:1.02rem;">
+      منسج مساحة لعرض قطع الملابس والإكسسوارات بشكل هادي بعيد عن زحمة المتاجر الكبيرة.
+      النسخة اللي بتشوفها دلوقتي واجهة عرض فقط، من غير نظام دفع فعلي — تقدر تضيف القطع للشنطة
+      وتشوف شكل التجربة، وبعدين نقدر نضيف سلة شراء ودفع حقيقي لما تكون جاهز للخطوة دي.
+    </p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div>
+    <div class="foot-brand">منسج</div>
+    <div class="foot-note">قطع مختارة — بدون نظام دفع فعلي حاليًا</div>
+  </div>
+  <div>واجهة تجريبية · ٢٠٢٦</div>
+</footer>
+
+<div class="drawer-overlay" id="overlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>الشنطة</h3>
+    <button class="drawer-close" id="drawerClose">✕</button>
+  </div>
+  <div class="drawer-items" id="drawerItems">
+    <div class="drawer-empty">الشنطة فاضية لسه</div>
+  </div>
+  <div class="drawer-note">واجهة عرض فقط — مفيش دفع فعلي في النسخة دي</div>
+</div>
+
+<script>
+const products = [
+  { id:1, name:'قميص كتان فضفاض', desc:'كتان مصري خفيف، قصّة مريحة لكل الفصول', price:1450,
+    colors:['#4A2C3B','#77826A','#221D1A'], grad:'linear-gradient(150deg,#77826A,#3f4736)' },
+  { id:2, name:'وشاح صوف مشتّى', desc:'صوف طبيعي منسوج يدويًا، دفء بدون تقيل', price:980,
+    colors:['#BE9A4C','#4A2C3B'], grad:'linear-gradient(150deg,#BE9A4C,#7a5f28)' },
+  { id:3, name:'حقيبة جلد صغيرة', desc:'جلد مدبوغ طبيعي، حزام قابل للتعديل', price:2200,
+    colors:['#221D1A','#4A2C3B'], grad:'linear-gradient(150deg,#3a2e28,#1a1512)' },
+  { id:4, name:'سترة دنيم كلاسيك', desc:'دنيم متوسط الوزن، قصّة تصلح للجنسين', price:1750,
+    colors:['#4A2C3B','#221D1A','#77826A'], grad:'linear-gradient(150deg,#2c3a4a,#151c24)' },
+  { id:5, name:'حزام جلد رفيع', desc:'إبزيم معدني مصقول، جلد إيطالي', price:650,
+    colors:['#221D1A','#BE9A4C'], grad:'linear-gradient(150deg,#4a3524,#241a10)' },
+  { id:6, name:'عباءة صيفي خفيفة', desc:'قماش فيسكوز ناعم، مثالية للحر', price:1300,
+    colors:['#77826A','#BE9A4C','#4A2C3B'], grad:'linear-gradient(150deg,#8a7d63,#4d4531)' },
+];
+
+const grid = document.getElementById('productGrid');
+let bag = [];
+
+function renderGrid(){
+  grid.innerHTML = products.map((p, i) => `
+    <div class="card">
+      <div class="card-art" style="background:${p.grad}">
+        <span class="card-look">قطعة ${String(i+1).padStart(2,'0')}</span>
+        <svg class="card-icon" viewBox="0 0 100 100" fill="none" stroke="rgba(244,238,227,0.75)" stroke-width="2.2">
+          <path d="M30 25 L40 15 L60 15 L70 25 L85 35 L75 48 L65 40 L65 88 L35 88 L35 40 L25 48 L15 35 Z" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">${p.name}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-foot">
+          <span class="price">${p.price} ج.م</span>
+          <div class="swatches">
+            ${p.colors.map((c,ci) => `<span class="swatch ${ci===0?'active':''}" style="background:${c}" data-pid="${p.id}" data-c="${ci}"></span>`).join('')}
+          </div>
+        </div>
+        <button class="add-btn" data-add="${p.id}">أضف للشنطة</button>
+      </div>
+    </div>
+  `).join('');
+}
+renderGrid();
+
+grid.addEventListener('click', (e) => {
+  if(e.target.matches('.swatch')){
+    const pid = e.target.dataset.pid;
+    grid.querySelectorAll(`.swatch[data-pid="${pid}"]`).forEach(s => s.classList.remove('active'));
+    e.target.classList.add('active');
+  }
+  if(e.target.matches('.add-btn')){
+    const pid = Number(e.target.dataset.add);
+    const p = products.find(x => x.id === pid);
+    bag.push(p);
+    updateBag();
+    e.target.textContent = 'اتضافت ✓';
+    e.target.classList.add('added');
+    setTimeout(() => {
+      e.target.textContent = 'أضف للشنطة';
+      e.target.classList.remove('added');
+    }, 1200);
+  }
+});
+
+const bagCount = document.getElementById('bagCount');
+const drawerItems = document.getElementById('drawerItems');
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('overlay');
+
+function updateBag(){
+  bagCount.textContent = bag.length;
+  if(bag.length === 0){
+    drawerItems.innerHTML = '<div class="drawer-empty">الشنطة فاضية لسه</div>';
+    return;
+  }
+  drawerItems.innerHTML = bag.map(p => `
+    <div class="drawer-item"><span>${p.name}</span><span class="price">${p.price} ج.م</span></div>
+  `).join('');
+}
+
+function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('open'); }
+function closeDrawer(){ drawer.classList.remove('open'); overlay.classList.remove('open'); }
+
+document.getElementById('bagBtn').addEventListener('click', openDrawer);
+document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
+</script>
+
+</body>
+</html>
