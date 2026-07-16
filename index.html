@@ -180,6 +180,22 @@
     *{ transition:none !important; }
   }
   :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+
+  .whatsapp-fab{
+    position:fixed; bottom:22px; left:22px; z-index:70;
+    width:56px; height:56px; border-radius:50%;
+    background:#25D366; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(0,0,0,0.4);
+    transition:transform .2s ease;
+  }
+  .whatsapp-fab:hover{ transform:scale(1.08); }
+  .whatsapp-fab svg{ width:28px; height:28px; }
+  .nav-contact{
+    display:flex; align-items:center; gap:6px;
+    background:#25D366; color:#0B100F !important; font-weight:600;
+    padding:9px 16px !important; border-radius:999px !important; border:none !important;
+  }
+  .nav-contact svg{ width:16px; height:16px; }
 </style>
 </head>
 <body>
@@ -194,9 +210,21 @@
       <a href="#men">ملابس رجالي</a>
       <a href="#kids">أطفال</a>
       <a href="#shirts">قمصان</a>
+      <a href="https://wa.me/201274630292" target="_blank" rel="noopener" class="nav-contact">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.42a9.86 9.86 0 0 0 4.62 1.17h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm0 18.07h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.16 8.16 0 0 1-1.26-4.35c0-4.51 3.67-8.18 8.19-8.18a8.15 8.15 0 0 1 5.79 2.4 8.11 8.11 0 0 1 2.4 5.78c0 4.52-3.68 8.19-8.15 8.19Zm4.48-6.13c-.24-.12-1.45-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.24-.64.8-.78.97-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.2-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+        واتساب
+      </a>
+      <a href="https://www.facebook.com/share/1SHvNtmMUV/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn-ghost" style="padding:9px 16px; font-size:0.86rem;">ماسنجر</a>
     </nav>
   </div>
 </header>
+
+<a href="https://wa.me/201274630292" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="#0B100F"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.42a9.86 9.86 0 0 0 4.62 1.17h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2Zm0 18.07h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.16 8.16 0 0 1-1.26-4.35c0-4.51 3.67-8.18 8.19-8.18a8.15 8.15 0 0 1 5.79 2.4 8.11 8.11 0 0 1 2.4 5.78c0 4.52-3.68 8.19-8.15 8.19Zm4.48-6.13c-.24-.12-1.45-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.24-.64.8-.78.97-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.2-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+</a>
+<a href="https://www.facebook.com/share/1SHvNtmMUV/?mibextid=wwXIfr" target="_blank" rel="noopener" class="whatsapp-fab" style="bottom:86px; background:#0084FF;" aria-label="راسلنا على ماسنجر">
+  <svg viewBox="0 0 24 24" fill="#0B100F"><path d="M12 2C6.48 2 2 6.15 2 11.27c0 2.9 1.44 5.5 3.7 7.2V22l3.38-1.86c.9.25 1.86.38 2.92.38 5.52 0 10-4.15 10-9.27C22 6.15 17.52 2 12 2Zm1.02 12.48-2.55-2.72-4.98 2.72 5.48-5.8 2.6 2.72 4.93-2.72-5.48 5.8Z"/></svg>
+</a>
 
 <div class="ticker">
   <div class="ticker-track">
